@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Get Student Subject Average Marks</title>
+  </head>
+  <body>
+    <h1>Get Student Subject Average Marks</h1>
+    <form method="get" action="{% url 'get_marks' %}">
+      <label for="student_name">Student Name:</label>
+      <input type="text" name="student_name" id="student_name" required>
+      <br>
+      <label for="subject_name">Subject Name:</label>
+      <input type="text" name="subject_name" id="subject_name" required>
+      <br>
+      <button type="submit">Get Average Marks</button>
+    </form>
+    {% if response_data %}
+      <h2>Average Marks:</h2>
+      <p>Student Name: {{ response_data.student_name }}</p>
+      <p>Subject Name: {{ response_data.subject_name }}</p>
+      <p>Group Name: {{ response_data.group_name }}</p>
+      <p>Average Mark: {{ response_data.average_mark }}</p>
+    {% endif %}
+  </body>
+</html>
